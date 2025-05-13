@@ -1,6 +1,6 @@
 # Ignorar carpetas de modelos y texturas
-ProyectoTeoCGIHC/Models/
-ProyectoTeoCGIHC/Textures/
+Models/
+Textures/
 
 # Carpetas y archivos basura de Visual Studio
 .vs/
@@ -13,7 +13,6 @@ ProyectoTeoCGIHC/Textures/
 *.ipch
 *.aps
 *.ncb
-*.obj
 *.idb
 *.opensdf
 *.tlog
