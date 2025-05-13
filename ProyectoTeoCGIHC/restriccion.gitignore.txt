@@ -1,0 +1,31 @@
+# Ignorar carpetas de modelos y texturas
+ProyectoTeoCGIHC/Models/
+ProyectoTeoCGIHC/Textures/
+
+# Carpetas y archivos basura de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sdf
+*.cache
+*.pdb
+*.ipch
+*.aps
+*.ncb
+*.obj
+*.idb
+*.opensdf
+*.tlog
+*.VC.db
+*.VC.opendb
+
+# Carpetas de compilación
+build/
+Debug/
+Release/
+x64/
+x86/
+
+# Archivos de respaldo
+*.orig
