@@ -1,0 +1,331 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Window.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Window.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Window.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\ProyectoFinal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\ProyectoFinal.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\stb_image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\stb_image.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\SpotLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\SpotLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Sphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Sphere.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Skybox.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Skybox.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Shader_light.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Shader_light.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\PointLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\PointLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Mesh.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Material.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Material.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Light.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Light.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\DirectionalLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\DirectionalLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\definition.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\definition.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\CommonValues.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\CommonValues.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F7DB4594-CB1F-4C44-ADE8-D956CD428BD3}|ProyectoTeoCGIHC\\ProyectoTeoCGIHC.vcxproj|solutionrelative:ProyectoTeoCGIHC\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Window.cpp",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Window.cpp",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Window.cpp",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Window.cpp",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Window.cpp",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAcwNAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-13T22:46:29.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProyectoFinal.cpp",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\ProyectoFinal.cpp",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\ProyectoFinal.cpp",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\ProyectoFinal.cpp",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\ProyectoFinal.cpp",
+              "ViewState": "AgIAAIIBAAAAAAAAAAAowIoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-13T06:43:15.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Texture.cpp",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Texture.cpp",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Texture.cpp",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Texture.cpp",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Texture.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-12T05:56:07.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Window.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Window.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Window.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Window.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Window.h",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:56:01.959Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Texture.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Texture.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Texture.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Texture.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Texture.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:55:50.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "stb_image.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\stb_image.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\stb_image.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\stb_image.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\stb_image.h",
+              "ViewState": "AgIAAGwDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:55:21.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SpotLight.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\SpotLight.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\SpotLight.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\SpotLight.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\SpotLight.h",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:55:16.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Sphere.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Sphere.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Sphere.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Sphere.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Sphere.h",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:55:08.612Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Skybox.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Skybox.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Skybox.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Skybox.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Skybox.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:55:02.351Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Shader_light.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Shader_light.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Shader_light.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Shader_light.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Shader_light.h",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:56.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PointLight.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\PointLight.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\PointLight.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\PointLight.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\PointLight.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:51.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Model.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Model.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Model.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Model.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Model.h",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:36.937Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Mesh.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Mesh.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Mesh.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Mesh.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Mesh.h",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:32.497Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Material.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Material.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Material.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Material.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Material.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:27.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Light.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Light.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Light.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Light.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Light.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:20.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DirectionalLight.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\DirectionalLight.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\DirectionalLight.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\DirectionalLight.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\DirectionalLight.h",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:17.499Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "definition.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\definition.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\definition.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\definition.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\definition.h",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:11.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CommonValues.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\CommonValues.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\CommonValues.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\CommonValues.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\CommonValues.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:08.453Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Camera.h",
+              "DocumentMoniker": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Camera.h",
+              "RelativeDocumentMoniker": "ProyectoTeoCGIHC\\Camera.h",
+              "ToolTip": "C:\\Users\\alons\\Documents\\Pr\u00E1cticasLb.CG\\ProyectoTeoCGIHC\\ProyectoTeoCGIHC\\Camera.h",
+              "RelativeToolTip": "ProyectoTeoCGIHC\\Camera.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-12T05:54:05.019Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
