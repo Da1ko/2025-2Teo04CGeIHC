@@ -38,7 +38,8 @@ float movCoche;
 float movOffset;
 float rotllanta;
 float rotllantaOffset;
-bool avanza, juegoGlobo = false, juegoTopo = false, juegoBolos = false, juegoHacha = false, juegoDados = false, juegoBateo = false;
+float movBrazos;
+bool avanza,juegoGlobo=false,juegoTopo = false,juegoBolos = false,juegoHacha = false,juegoDados = false,juegoBateo = false;
 float toffsetflechau = 0.0f;
 float toffsetflechav = 0.0f;
 float toffsetnumerou = 0.0f;
@@ -94,14 +95,22 @@ Model Hacha;
 Model TopoMaquina;
 Model Topo;
 Model TopoMazo;
-
+//Estacionamiento
+Model ParkinLot;
 //Puestos
 Model Papas;
 Model Hamburguesa;
 Model Helado;
 Model Carrusel;
 Model baseLuces;
-
+Model Benzon;//Benzon
+Model MuscleMan; //Muscle man
+//Mordecai
+Model Mordecai;
+Model PieIzqMordecai;
+Model PieDerMordecai;
+Model BrazoIzqMordecai;
+Model BrazoDerMordecai;
 //Gengar
 Model Gengar;
 Model GengarManoIzq;
@@ -220,7 +229,7 @@ void CreateObjects()
 
 
 	};
-
+	
 
 	unsigned int flechaIndices[] = {
 	   0, 1, 2,
@@ -261,15 +270,15 @@ void CreateObjects()
 
 	};
 
-	Mesh* obj1 = new Mesh();
+	Mesh *obj1 = new Mesh();
 	obj1->CreateMesh(vertices, indices, 32, 12);
 	meshList.push_back(obj1);
 
-	Mesh* obj2 = new Mesh();
+	Mesh *obj2 = new Mesh();
 	obj2->CreateMesh(vertices, indices, 32, 12);
 	meshList.push_back(obj2);
 
-	Mesh* obj3 = new Mesh();
+	Mesh *obj3 = new Mesh();
 	obj3->CreateMesh(floorVertices, floorIndices, 32, 6);
 	meshList.push_back(obj3);
 
@@ -368,7 +377,7 @@ void CrearDado()
 
 void CreateShaders()
 {
-	Shader* shader1 = new Shader();
+	Shader *shader1 = new Shader();
 	shader1->CreateFromFiles(vShader, fShader);
 	shaderList.push_back(*shader1);
 }
@@ -384,14 +393,14 @@ int main()
 	CreateObjects();
 	CrearDado();
 	CreateShaders();
-	bool noche = false;
+	bool noche=false;
 
 	//camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 0.5f, 0.5f);
 
 	dadoTexture = Texture("Textures/dadoPokemon.jpg");
 	dadoTexture.LoadTextureA();
 	pisoTexture = Texture("Textures/pokemonPasto.jpg");
-	pisoTexture.LoadTextureA();
+	pisoTexture.LoadTexture();
 
 	Kitt_M = Model();
 	Kitt_M.LoadModel("Models/kitt_optimizado.obj");
@@ -399,10 +408,12 @@ int main()
 	Llanta_M.LoadModel("Models/llanta_optimizada.obj");
 	Dragon_M = Model();
 	Dragon_M.LoadModel("Models/17174_Tiamat_new.obj");
-
+	
 	Dados_Mesa = Model();
 	Dados_Mesa.LoadModel("Models/Dados_Mesa.obj");
 	//Estructuras
+	ParkinLot = Model();
+	ParkinLot.LoadModel("Models/ParkinLot.obj");
 	EntradaPuerta = Model();
 	EntradaPuerta.LoadModel("Models/Entrada_Puerta.obj");
 	EntradaCartel = Model();
@@ -488,7 +499,21 @@ int main()
 	Carrusel.LoadModel("Models/Carrusel.obj");
 	baseLuces = Model();
 	baseLuces.LoadModel("Models/baseLuces.obj");
-
+	MuscleMan = Model();
+	MuscleMan.LoadModel("Models/MuscleMan.obj");
+	Benzon = Model();//Benzon
+	Benzon.LoadModel("Models/Benzon.obj");
+	//Mordecai
+	Mordecai = Model();
+	Mordecai.LoadModel("Models/TorsoMordecai.obj");
+	BrazoDerMordecai = Model();
+	BrazoDerMordecai.LoadModel("Models/BrazoDerMordecai.obj");
+	BrazoIzqMordecai = Model();
+	BrazoIzqMordecai.LoadModel("Models/BrazoIzqMordecai.obj");
+	PieIzqMordecai = Model();
+	PieIzqMordecai.LoadModel("Models/PiernaIzqMordecai.obj");
+	PieDerMordecai = Model();
+	PieDerMordecai.LoadModel("Models/PiernaDerMordecai.obj");
 	//Gengar
 	Gengar = Model();
 	Gengar.LoadModel("Models/gengarCuerpo.dae");
@@ -634,20 +659,20 @@ int main()
 		65.0f);
 	spotLightCount2++;
 
-
+	
 	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
-		uniformSpecularIntensity = 0, uniformShininess = 0, uniformTextureOffset = 0;
+		uniformSpecularIntensity = 0, uniformShininess = 0, uniformTextureOffset=0;
 	GLuint uniformColor = 0;
 	glm::mat4 projection = glm::perspective(45.0f, (GLfloat)mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 1000.0f);
-
+	
 	movCoche = 0.0f;
 	movOffset = 0.9f;
 	rotllanta = 0.0f;
 	rotllantaOffset = 10.0f;
-
+	float velocidad = 5.0f;
 	avanza = true;
 	////Loop mientras no se cierra la ventana
-
+	
 	//Luces juegos 
 	glm::vec3 targetPositionGlobos = glm::vec3(160.0f, 4.0f, 55.0f); // Posición objetivo
 	glm::vec3 targetPositionBoliche = glm::vec3(140.0f, 12.0f, -43.0f); // Posición objetivo
@@ -679,7 +704,7 @@ int main()
 		deltaTime += (now - lastTime) / limitFPS;
 		lastTime = now;
 
-		angulovaria += 0.5f * deltaTime;
+		angulovaria += 0.5f*deltaTime;
 		if (avanza) {
 			if (movCoche > -250.0f)
 			{
@@ -700,7 +725,7 @@ int main()
 				avanza = true;
 			}
 		}
-
+		
 
 		//Recibir eventos del usuario
 		glfwPollEvents();
@@ -722,15 +747,15 @@ int main()
 			);
 			glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 			break;
-		case 2: // Cámara dinámica  
-			camera.keyControl(mainWindow.getsKeys(), deltaTime);
-			camera.mouseControl(mainWindow.getXChange(), mainWindow.getYChange());
-			viewMatrix = camera.calculateViewMatrix();
+        case 2: // Cámara dinámica  
+			   camera.keyControl(mainWindow.getsKeys(), deltaTime);
+			   camera.mouseControl(mainWindow.getXChange(), mainWindow.getYChange());
+			   viewMatrix = camera.calculateViewMatrix();
 
-			break;
+           break;
 		}
-
-
+		
+	
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 
 		if (movCoche < -150) {
@@ -772,16 +797,16 @@ int main()
 		//lowerLight.y -= 0.3f;
 		//spotLights[0].SetFlash(lowerLight, camera.getCameraDirection());
 
-
+		
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 
 		if (movCoche < -150) {
 			shaderList[0].SetDirectionalLight(&mainLight);
 		}
-		else if (movCoche < 65) {
+		else if(movCoche < 65){
 			shaderList[0].SetDirectionalLight(&mainLight2);
 		}
-		else if (movCoche > 200)
+		else if(movCoche > 200)
 		{
 			shaderList[0].SetDirectionalLight(&mainLight3);
 		}
@@ -832,7 +857,7 @@ int main()
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
 			}
-
+			
 			//Topo
 			if (distance2 <= proximityRange) {
 				if (!lightOn2) {
@@ -980,14 +1005,14 @@ int main()
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
 			}
 
-
-
+			
+			
 		}
-		else if (mainWindow.getEncender() == true) {
+		else if (mainWindow.getEncender() == true){
 			if (noche == false) {
 				shaderList[0].SetSpotLights(spotLights2, spotLightCount2);
 			}
-			else {
+			else{
 				shaderList[0].SetSpotLights(spotLights, spotLightCount);
 			}
 		}
@@ -999,7 +1024,7 @@ int main()
 		glm::vec2 toffset = glm::vec2(0.0f, 0.0f);
 		glm::vec3 posicionPersonaje;
 		glm::vec4 nuevaPosicionPersonaje;
-
+		
 		glUniform2fv(uniformTextureOffset, 1, glm::value_ptr(toffset));
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(0.0f, -2.0f, 0.0f));
@@ -1013,7 +1038,7 @@ int main()
 		meshList[2]->RenderMesh();
 
 
-
+		
 
 		//============== ENTRADA ================
 		//Entrada
@@ -1211,7 +1236,7 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		Camino.RenderModel();
 		model = modelaux;
-
+		
 		modelaux = model;
 		model = glm::translate(model, glm::vec3(41.0f, 0.0f, -61.0f));
 		model = glm::scale(model, glm::vec3(1.5f, 1.5f, 1.0f));
@@ -1414,7 +1439,12 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		Camino.RenderModel();
 		model = modelaux;
-
+		//Estacionamiento
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 200.5f));
+		model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		ParkinLot.RenderModel();
 		//============ JAULA DE BATEO ==================
 		//Lanzador
 		model = glm::mat4(1.0);
@@ -1479,7 +1509,7 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		BateoBola.RenderModel();
 		model = modelaux;
-
+		
 		// ============= GLOBOS ==================
 		//Mesa
 		model = glm::mat4(1.0);
@@ -2113,40 +2143,46 @@ int main()
 
 		//Luces base
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(50.0f, -10.0f, 20.0f)); // Posición base
+		model = glm::translate(model, glm::vec3(50.0f, -10.0f,20.0f)); // Posición base
 		modelaux = model;
 		model = glm::scale(model, glm::vec3(14.0f, 7.0f, 14.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		baseLuces.RenderModel();
 		model = modelaux;
+		
+		if (mainWindow.getarticulacion1() !=0.0f) {
+			movBrazos = sin(glfwGetTime()*velocidad)*45.0f*toRadians;
+		}
+		else {
+			movBrazos = 0.0f;
+		}
+        //Personaje Gengar
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(100.0f, 4.0f, 150.0f)); // Posición base
+        model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion1())); // Movimiento hacia adelante en local
 
-
-
-		//Personaje
-		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(100.0f, 4.0f, 150.0f)); // Posición base
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion1())); // Movimiento hacia adelante en local
+        modelaux = model;
+        model = glm::scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
+        model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+        model = glm::rotate(model, -270 * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+        Gengar.RenderModel();
+        model = modelaux;
 
 		modelaux = model;
-		model = glm::scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
-		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, -270 * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		Gengar.RenderModel();
-		model = modelaux;
-
-		modelaux = model;
-		model = glm::translate(model, glm::vec3(-4.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-3.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
 		model = glm::rotate(model, 45 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, movBrazos, glm::vec3(0.0f, 1.0f, 0.0f));  
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		GengarManoDer.RenderModel();
 		model = modelaux;
 
 		modelaux = model;
-		model = glm::translate(model, glm::vec3(4.0f, 1.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(3.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
 		model = glm::rotate(model, -45 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, -movBrazos, glm::vec3(0.0f, 1.0f, 0.0f));  
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		GengarManoIzq.RenderModel();
 		model = modelaux;
@@ -2167,52 +2203,97 @@ int main()
 		model = glm::rotate(model, -90 * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		GengarPataIzq.RenderModel();
+		//Muscle Man
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(105.0f, 0.0f, 140.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion1()));
+		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(250.08f, 250.08f, 250.08f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		MuscleMan.RenderModel();
+		//Benzon
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(105.0f, 4.0f, 145.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion1()));
+		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(25.08f, 25.08f, 25.08f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Benzon.RenderModel();
+		model = modelaux;
+		//Personaje Mordecai
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(105.0f, -1.0f, 150.0f));
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion1()));
+		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		//model = glm::rotate(model, -270 * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
+		model = glm::scale(model, glm::vec3(8.08f, 8.08f, 8.08f)); 
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Mordecai.RenderModel();
+
+		modelaux = model;
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BrazoDerMordecai.RenderModel();
 		model = modelaux;
 
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BrazoIzqMordecai.RenderModel();
+		model = modelaux;
+
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		PieDerMordecai.RenderModel();
+		model = modelaux;
+
+		//model = glm::translate(model, glm::vec3(-0.3f, -0.8f, 0.1));
+		//model = glm::rotate(model, 180 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		//model = glm::rotate(model, -90 * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(8.08f, 8.08f, 8.08f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		PieIzqMordecai.RenderModel();
+		model = modelaux;
 		//Luces interactivas
 		glm::vec3 posicionLuz2;
 		glm::vec4 nuevaPosicionLuz2;
 		//Luz 1
-		model = glm::mat4(1.0f);
-		modelaux = model;
-		model = glm::translate(model, glm::vec3(163.0f, 90.0f, 21.0f));
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
-		posicionLuz2 = glm::vec3(-61.0f, 90.0f, 21.0f);
-		nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
-		spotLights[0].SetPos(nuevaPosicionLuz2);
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		BateoBola.RenderModel();
-		model = modelaux;
+			model = glm::mat4(1.0f);
+			modelaux = model;
+			model = glm::translate(model, glm::vec3(163.0f, 90.0f, 21.0f));
+			model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+			model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
+			posicionLuz2 = glm::vec3(-61.0f, 90.0f, 21.0f);
+			nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
+			spotLights[0].SetPos(nuevaPosicionLuz2);
+			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+			BateoBola.RenderModel();
+			model = modelaux;
 
-		//Luz 2
-		modelaux = model;
-		model = glm::translate(model, glm::vec3(46.0f, 90.0f, 21.0f));
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
-		posicionLuz2 = glm::vec3(46.0f, 90.0f, 21.0f);
-		nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
-		spotLights[1].SetPos(nuevaPosicionLuz2);
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		BateoBola.RenderModel();
-		model = modelaux;
+			//Luz 2
+			modelaux = model;
+			model = glm::translate(model, glm::vec3(46.0f, 90.0f, 21.0f));
+			model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+			model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
+			posicionLuz2 = glm::vec3(46.0f, 90.0f, 21.0f);
+			nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
+			spotLights[1].SetPos(nuevaPosicionLuz2);
+			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+			BateoBola.RenderModel();
+			model = modelaux;
 
-		//Luz 3
-		modelaux = model;
-		model = glm::translate(model, glm::vec3(-62.0f, 90.0f, 21.0f));
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
-		posicionLuz2 = glm::vec3(-62.0f, 90.0f, 21.0f);
-		nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
-		spotLights[2].SetPos(nuevaPosicionLuz2);
-		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		BateoBola.RenderModel();
-		model = modelaux;
-
+			//Luz 3
+			modelaux = model;
+			model = glm::translate(model, glm::vec3(-62.0f, 90.0f, 21.0f));
+			model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+			model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
+			posicionLuz2 = glm::vec3(-62.0f, 90.0f, 21.0f);
+			nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
+			spotLights[2].SetPos(nuevaPosicionLuz2);
+			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+			BateoBola.RenderModel();
+			model = modelaux;
+		
 
 		//Instancia del coche 
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(movCoche - 50.0f, -10.5f, -2.0f));
+		model = glm::translate(model, glm::vec3(movCoche-50.0f, -10.5f, -2.0f));
 		modelaux = model;
 		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
 		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));

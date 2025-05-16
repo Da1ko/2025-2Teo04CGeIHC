@@ -1,0 +1,272 @@
+# Blender 4.1.1 MTL File: 'None'
+# www.blender.org
+
+newmtl GLASS_Inst
+Ns 14.142129
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 0.700000
+illum 6
+
+newmtl Lights_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Kd 0.887923 0.791298 0.132868
+Ks 0.000000 0.000000 0.000000
+Ke 0.882353 0.788235 0.133333
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl atlas_mat
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/atlas_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/atlas_n.jpg
+
+newmtl base_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/base_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/base_n.jpg
+
+newmtl blackpaint_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/blackpaint_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/blackpaint_n.jpg
+
+newmtl box2_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/box2_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/box2_n.jpg
+
+newmtl concrete_floor_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/concrete_floor_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/concrete_floor_n.jpg
+
+newmtl fencebase_mat
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/fencebase_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/fencebase_n.jpg
+
+newmtl fenceframe_mat
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.020000 0.020000 0.020000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd ../Textures/Parkin/fencemetal_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/fencemetal_n.jpg
+
+newmtl fencemesh_mat
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 1
+map_Kd ../Textures/Parkin/fencemesh_color+mask.jpg
+map_d ../Textures/Parkin/fencemesh_color+mask.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/fencemesh_n.jpg
+
+newmtl fencerings_mat
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.020000 0.020000 0.020000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd ../Textures/Parkin/fencerings_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/fencerings_n.jpg
+
+newmtl fix_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/fixture_c.jpg
+
+newmtl gate_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/gate_c.jpg
+map_Bump -../Textures/Parkin/bm 1.000000 gate_n.jpg
+
+newmtl lamp3_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/lamp3_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/lamp3_n.jpg
+
+newmtl lampframe_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/lampframe_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/lightframe_n.jpg
+
+newmtl lampgrill_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/lampgrill_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/lampgrill_n.jpg
+
+newmtl marks_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/marks_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/marks_n.jpg
+
+newmtl pipechair1_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/pipechair_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/pipechair_n.jpg
+
+newmtl plastic_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/plastic_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/plastic_n.jpg
+
+newmtl steel_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/steel_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/steel_n.jpg
+
+newmtl switches_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/switchblock_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/switchblock_n.jpg
+
+newmtl vent_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/vent_atlas_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/vent_atlas_n.jpg
+
+newmtl white_light2_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.996078 0.996078 0.996078
+Ni 1.500000
+d 1.000000
+illum 1
+
+newmtl white_light_m
+Ns 200.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.996078 0.996078 0.996078
+Ni 1.500000
+d 1.000000
+illum 3
+
+newmtl whitepaint_m
+Ns 10.717731
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd ../Textures/Parkin/whitepaint_c.jpg
+map_Bump -bm 1.000000 ../Textures/Parkin/whitepaint_n.jpg
