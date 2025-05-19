@@ -25,7 +25,7 @@
 #include"Model.h"
 #include "Skybox.h"
 
-//para iluminación
+//para iluminaciï¿½n
 #include "CommonValues.h"
 #include "DirectionalLight.h"
 #include "PointLight.h"
@@ -33,13 +33,13 @@
 #include "Material.h"
 const float toRadians = 3.14159265f / 180.0f;
 
-//variables para animación
+//variables para animaciï¿½n
 float movCoche;
 float movOffset;
 float rotllanta;
 float rotllantaOffset;
 float movBrazos;
-bool avanza,juegoGlobo=false,juegoTopo = false,juegoBolos = false,juegoHacha = false,juegoDados = false,juegoBateo = false;
+bool avanza, juegoGlobo = false, juegoTopo = false, juegoBolos = false, juegoHacha = false, juegoDados = false, juegoBateo = false;
 float toffsetflechau = 0.0f;
 float toffsetflechav = 0.0f;
 float toffsetnumerou = 0.0f;
@@ -118,6 +118,19 @@ Model GengarManoDer;
 Model GengarPataIzq;
 Model GengarPataDer;
 
+//Sol y luna
+Model Sol;
+Model Luna;
+
+//Trampolin
+Model Trampolin;
+
+//Mesas
+Model MesaComida;
+//Bancas
+Model Bancas;
+Model BancasTematicas;
+
 Skybox skybox;
 Skybox skybox2;
 Skybox skybox3;
@@ -151,7 +164,7 @@ static const char* fShader = "shaders/shader_light.frag";
 
 
 
-//cálculo del promedio de las normales para sombreado de Phong
+//cï¿½lculo del promedio de las normales para sombreado de Phong
 void calcAverageNormals(unsigned int* indices, unsigned int indiceCount, GLfloat* vertices, unsigned int verticeCount,
 	unsigned int vLength, unsigned int normalOffset)
 {
@@ -229,7 +242,7 @@ void CreateObjects()
 
 
 	};
-	
+
 
 	unsigned int flechaIndices[] = {
 	   0, 1, 2,
@@ -270,15 +283,15 @@ void CreateObjects()
 
 	};
 
-	Mesh *obj1 = new Mesh();
+	Mesh* obj1 = new Mesh();
 	obj1->CreateMesh(vertices, indices, 32, 12);
 	meshList.push_back(obj1);
 
-	Mesh *obj2 = new Mesh();
+	Mesh* obj2 = new Mesh();
 	obj2->CreateMesh(vertices, indices, 32, 12);
 	meshList.push_back(obj2);
 
-	Mesh *obj3 = new Mesh();
+	Mesh* obj3 = new Mesh();
 	obj3->CreateMesh(floorVertices, floorIndices, 32, 6);
 	meshList.push_back(obj3);
 
@@ -377,7 +390,7 @@ void CrearDado()
 
 void CreateShaders()
 {
-	Shader *shader1 = new Shader();
+	Shader* shader1 = new Shader();
 	shader1->CreateFromFiles(vShader, fShader);
 	shaderList.push_back(*shader1);
 }
@@ -393,7 +406,7 @@ int main()
 	CreateObjects();
 	CrearDado();
 	CreateShaders();
-	bool noche=false;
+	bool noche = false;
 
 	//camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 0.5f, 0.5f);
 
@@ -408,7 +421,7 @@ int main()
 	Llanta_M.LoadModel("Models/llanta_optimizada.obj");
 	Dragon_M = Model();
 	Dragon_M.LoadModel("Models/17174_Tiamat_new.obj");
-	
+
 	Dados_Mesa = Model();
 	Dados_Mesa.LoadModel("Models/Dados_Mesa.obj");
 	//Estructuras
@@ -443,17 +456,17 @@ int main()
 	GloboDardo = Model();
 	GloboDardo.LoadModel("Models/Dardos_Dardo.obj");
 	Globo1 = Model();
-	Globo1.LoadModel("Models/Globos_Globo1.obj");
+	Globo1.LoadModel("Models/Globos_GloboR1.obj");
 	Globo2 = Model();
-	Globo2.LoadModel("Models/Globos_Globo2.obj");
+	Globo2.LoadModel("Models/Globos_GloboR2.obj");
 	Globo3 = Model();
-	Globo3.LoadModel("Models/Globos_Globo3.obj");
+	Globo3.LoadModel("Models/Globos_GloboR3.obj");
 	Globo4 = Model();
-	Globo4.LoadModel("Models/Globos_Globo4.obj");
+	Globo4.LoadModel("Models/Globos_GloboR4.obj");
 	Globo5 = Model();
-	Globo5.LoadModel("Models/Globos_Globo5.obj");
+	Globo5.LoadModel("Models/Globos_GloboR5.obj");
 	Globo6 = Model();
-	Globo6.LoadModel("Models/Globos_Globo6.obj");
+	Globo6.LoadModel("Models/Globos_GloboR6.obj");
 
 	//Boliche
 	BolichePorteria = Model();
@@ -526,6 +539,27 @@ int main()
 	GengarPataDer = Model();
 	GengarPataDer.LoadModel("Models/gengarPiernaDer.dae");
 
+	//Trampolin
+	Trampolin = Model();
+	Trampolin.LoadModel("Models/TrampolinRuggrats.obj");
+
+	//Mesas
+	MesaComida = Model();
+	MesaComida.LoadModel("Models/mesasComida.obj");
+
+	//Bancas
+	Bancas = Model();
+	Bancas.LoadModel("Models/bancaPS.obj");
+	BancasTematicas = Model();
+	BancasTematicas.LoadModel("Models/bancaP.obj");
+
+	//Sol
+	Sol = Model();
+	Sol.LoadModel("Models/sol.obj");
+	//Luna
+	Luna = Model();
+	Luna.LoadModel("Models/luna.obj");
+
 	std::vector<std::string> skyboxFaces;
 	std::vector<std::string> skyboxFaces2;
 	std::vector<std::string> skyboxFaces3;
@@ -559,7 +593,7 @@ int main()
 	Material_opaco = Material(0.3f, 4);
 
 
-	//luz direccional, sólo 1 y siempre debe de existir
+	//luz direccional, sï¿½lo 1 y siempre debe de existir
 	mainLight = DirectionalLight(1.0f, 1.0f, 1.0f,
 		0.5f, 0.5f,
 		0.0f, 0.0f, -1.0f);
@@ -633,7 +667,7 @@ int main()
 		30.0f);
 	spotLightCount4++;
 	//Dosdo conjunto de luces
-	spotLights2[0] = SpotLight(0.3f, 0.3f, 0.3f,
+	spotLights2[0] = SpotLight(0.5f, 0.5f, 0.0f,
 		1.0f, 0.09f,
 		163.0f, 90.0f, 21.0f,
 		0.0f, -1.0f, 0.0f,
@@ -642,7 +676,7 @@ int main()
 	spotLightCount2++;
 
 	//lamparas
-	spotLights2[1] = SpotLight(0.3f, 0.3f, 0.3f,
+	spotLights2[1] = SpotLight(0.5f, 0.5f, 0.0f,
 		1.0f, 0.09f,
 		46.0f, 90.0f, 21.0f,
 		0.0f, -1.0f, 0.0f,
@@ -651,7 +685,7 @@ int main()
 	spotLightCount2++;
 
 	//lamparas
-	spotLights2[2] = SpotLight(0.3f, 0.3f, 0.3f,
+	spotLights2[2] = SpotLight(0.5f, 0.5f, 0.0f,
 		1.0f, 0.09f,
 		-62.0f, 90.0f, 21.0f,
 		0.0f, -1.0f, 0.0f,
@@ -659,12 +693,12 @@ int main()
 		65.0f);
 	spotLightCount2++;
 
-	
+
 	GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
-		uniformSpecularIntensity = 0, uniformShininess = 0, uniformTextureOffset=0;
+		uniformSpecularIntensity = 0, uniformShininess = 0, uniformTextureOffset = 0;
 	GLuint uniformColor = 0;
 	glm::mat4 projection = glm::perspective(45.0f, (GLfloat)mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 1000.0f);
-	
+
 	movCoche = 0.0f;
 	movOffset = 0.9f;
 	rotllanta = 0.0f;
@@ -672,14 +706,14 @@ int main()
 	float velocidad = 5.0f;
 	avanza = true;
 	////Loop mientras no se cierra la ventana
-	
+
 	//Luces juegos 
-	glm::vec3 targetPositionGlobos = glm::vec3(160.0f, 4.0f, 55.0f); // Posición objetivo
-	glm::vec3 targetPositionBoliche = glm::vec3(140.0f, 12.0f, -43.0f); // Posición objetivo
-	glm::vec3 targetPositionBateo = glm::vec3(-35.0f, 14.0f, -48.0f); // Posición objetivo
-	glm::vec3 targetPositionTopo = glm::vec3(59.0f, 11.0f, -34.0f); // Posición objetivo
-	glm::vec3 targetPositionDados = glm::vec3(158.0f, 13.0f, 2.0f); // Posición objetivo
-	glm::vec3 targetPositionHacha = glm::vec3(102.0f, 7.0f, -40.0f); // Posición objetivo
+	glm::vec3 targetPositionGlobos = glm::vec3(160.0f, 4.0f, 55.0f); // Posiciï¿½n objetivo
+	glm::vec3 targetPositionBoliche = glm::vec3(140.0f, 12.0f, -43.0f); // Posiciï¿½n objetivo
+	glm::vec3 targetPositionBateo = glm::vec3(-35.0f, 14.0f, -48.0f); // Posiciï¿½n objetivo
+	glm::vec3 targetPositionTopo = glm::vec3(59.0f, 11.0f, -34.0f); // Posiciï¿½n objetivo
+	glm::vec3 targetPositionDados = glm::vec3(158.0f, 13.0f, 2.0f); // Posiciï¿½n objetivo
+	glm::vec3 targetPositionHacha = glm::vec3(102.0f, 7.0f, -40.0f); // Posiciï¿½n objetivo
 
 
 	float proximityRange = 25.0f; // Rango de proximidad para activar la luz
@@ -690,10 +724,11 @@ int main()
 	bool lightOn5 = false;
 	bool lightOn6 = false;
 
-	// Definir posición fija de la cámara
-	glm::vec3 staticCameraPosition = glm::vec3(0.0f, 300.0f, 0.0f); // Posición alta
+
+	// Definir posiciï¿½n fija de la cï¿½mara
+	glm::vec3 staticCameraPosition = glm::vec3(0.0f, 300.0f, 0.0f); // Posiciï¿½n alta
 	glm::vec3 staticCameraTarget = glm::vec3(0.0f, 0.0f, 0.0f);    // Mirando hacia el origen
-	glm::vec3 upVector = glm::vec3(0.0f, 0.0f, -1.0f);             // Vector "arriba" para la cámara
+	glm::vec3 upVector = glm::vec3(0.0f, 0.0f, -1.0f);             // Vector "arriba" para la cï¿½mara
 
 
 	camera = Camera(glm::vec3(102.0f, 7.0f, 143.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 0.5f, 0.5f);
@@ -704,7 +739,7 @@ int main()
 		deltaTime += (now - lastTime) / limitFPS;
 		lastTime = now;
 
-		angulovaria += 0.5f*deltaTime;
+		angulovaria += 0.5f * deltaTime;
 		if (avanza) {
 			if (movCoche > -250.0f)
 			{
@@ -725,7 +760,7 @@ int main()
 				avanza = true;
 			}
 		}
-		
+
 
 		//Recibir eventos del usuario
 		glfwPollEvents();
@@ -739,23 +774,29 @@ int main()
 
 		switch (mainWindow.getTipoCam())
 		{
-		case 1: // Cámara estática
+		case 1: // Cï¿½mara estï¿½tica
 			viewMatrix = glm::lookAt(
-				staticCameraPosition, // Posición de la cámara
-				staticCameraTarget,   // Punto al que mira la cámara
-				upVector              // Vector "arriba" de la cámara
+				staticCameraPosition, // Posiciï¿½n de la cï¿½mara
+				staticCameraTarget,   // Punto al que mira la cï¿½mara
+				upVector              // Vector "arriba" de la cï¿½mara
 			);
 			glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 			break;
-        case 2: // Cámara dinámica  
-			   camera.keyControl(mainWindow.getsKeys(), deltaTime);
-			   camera.mouseControl(mainWindow.getXChange(), mainWindow.getYChange());
-			   viewMatrix = camera.calculateViewMatrix();
+		case 2: // Cï¿½mara dinï¿½mica  
+			camera.keyControl(mainWindow.getsKeys(), deltaTime);
+			camera.mouseControl(mainWindow.getXChange(), mainWindow.getYChange());
 
-           break;
+
+			glm::vec3 pos = camera.getCameraPosition();
+			printf("PosiciÃ³n de la cÃ¡mara: X=%.2f, Y=%.2f, Z=%.2f\n", pos.x, pos.y, pos.z);
+			viewMatrix = camera.calculateViewMatrix();
+
+			
+			break;
+            
 		}
-		
-	
+
+
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 
 		if (movCoche < -150) {
@@ -784,7 +825,7 @@ int main()
 		uniformColor = shaderList[0].getColorLocation();
 		uniformTextureOffset = shaderList[0].getOffsetLocation();
 
-		//información en el shader de intensidad especular y brillo
+		//informaciï¿½n en el shader de intensidad especular y brillo
 		uniformSpecularIntensity = shaderList[0].GetSpecularIntensityLocation();
 		uniformShininess = shaderList[0].GetShininessLocation();
 
@@ -792,21 +833,21 @@ int main()
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera.calculateViewMatrix()));
 		glUniform3f(uniformEyePosition, camera.getCameraPosition().x, camera.getCameraPosition().y, camera.getCameraPosition().z);
 
-		//// luz ligada a la cámara de tipo flash
+		//// luz ligada a la cï¿½mara de tipo flash
 		//glm::vec3 lowerLight = camera.getCameraPosition();
 		//lowerLight.y -= 0.3f;
 		//spotLights[0].SetFlash(lowerLight, camera.getCameraDirection());
 
-		
+
 		glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(viewMatrix));
 
 		if (movCoche < -150) {
 			shaderList[0].SetDirectionalLight(&mainLight);
 		}
-		else if(movCoche < 65){
+		else if (movCoche < 65) {
 			shaderList[0].SetDirectionalLight(&mainLight2);
 		}
-		else if(movCoche > 200)
+		else if (movCoche > 200)
 		{
 			shaderList[0].SetDirectionalLight(&mainLight3);
 		}
@@ -816,10 +857,10 @@ int main()
 
 
 		if (mainWindow.getEncender() == false) {
-			// Obtener la posición de la cámara
+			// Obtener la posiciï¿½n de la cï¿½mara
 			glm::vec3 cameraPosition = camera.getCameraPosition();
 
-			// Calcular la distancia entre la cámara y la posición objetivo
+			// Calcular la distancia entre la cï¿½mara y la posiciï¿½n objetivo
 			//Globos
 			float distance = glm::distance(cameraPosition, targetPositionGlobos);
 			float distance2 = glm::distance(cameraPosition, targetPositionTopo);
@@ -827,18 +868,35 @@ int main()
 			float distance4 = glm::distance(cameraPosition, targetPositionBoliche);
 			float distance5 = glm::distance(cameraPosition, targetPositionDados);
 			float distance6 = glm::distance(cameraPosition, targetPositionHacha);
-			// Encender o apagar la luz según la distancia
+			// Encender o apagar la luz segï¿½n la distancia
 			//Globos
 			if (distance <= proximityRange) {
 				if (!lightOn) {
 					// Encender la luz
 					spotLights3[0] = SpotLight(0.6f, 0.3f, 0.7f, // Color de la luz
 						1.0f, 2.0f,       // Intensidad ambiental y difusa
-						195.0f, 35.0f, 57.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						195.0f, 35.0f, 57.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.1f, 0.5f, 0.5f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						160.0f, 35.0f, 68.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.8f, 0.8f, 0.2f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						160.0f, 35.0f, 38.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
 					lightOn = true;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
@@ -848,27 +906,60 @@ int main()
 					// Apagar la luz
 					spotLights3[0] = SpotLight(0.0f, 0.0f, 0.0f, // Color apagado
 						0.0f, 0.0f,       // Intensidad apagada
-						195.0f, 35.0f, 57.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						195.0f, 35.0f, 57.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						160.0f, 35.0f, 68.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						160.0f, 35.0f, 38.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
 					lightOn = false;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
 			}
-			
+
 			//Topo
 			if (distance2 <= proximityRange) {
 				if (!lightOn2) {
 					// Encender la luz
-					spotLights3[0] = SpotLight(0.6f, 0.3f, 0.7f, // Color de la luz
+					spotLights3[0] = SpotLight(1.0f, 0.3f, 0.7f, // Color de la luz
 						1.0f, 2.0f,       // Intensidad ambiental y difusa
-						60.0f, 20.0f, -44.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						60.0f, 20.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.0f, 1.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						70.0f, 20.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.0f, 0.0f, 1.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						46.0f, 20.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
 					lightOn2 = true;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
@@ -878,11 +969,30 @@ int main()
 					// Apagar la luz
 					spotLights3[0] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
 						0.0f, 0.0f,       // Intensidad apagada
-						60.0f, 20.0f, -44.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						60.0f, 20.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+
+
+					spotLights3[1] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						70.0f, 20.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						46.0f, 20.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+
 					lightOn2 = false;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
@@ -894,10 +1004,26 @@ int main()
 					// Encender la luz
 					spotLights3[0] = SpotLight(0.6f, 0.3f, 0.7f, // Color de la luz
 						1.0f, 2.0f,       // Intensidad ambiental y difusa
-						-66.0f, 63.0f, -44.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						-66.0f, 63.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(1.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						-40.0f, 63.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.0f, 0.0f, 1.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						-78.0f, 63.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
 					lightOn3 = true;
 				}
@@ -908,11 +1034,28 @@ int main()
 					// Apagar la luz
 					spotLights3[0] = SpotLight(0.0f, 0.0f, 0.0f, // Color apagado
 						0.0f, 0.0f,       // Intensidad apagada
-						-66.0f, 63.0f, -44.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						-66.0f, 63.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+					
+					spotLights3[1] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						-40.0f, 63.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						-78.0f, 63.0f, -44.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
 					lightOn3 = false;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
@@ -923,11 +1066,28 @@ int main()
 					// Encender la luz
 					spotLights3[0] = SpotLight(0.6f, 0.3f, 0.7f, // Color de la luz
 						1.0f, 2.0f,       // Intensidad ambiental y difusa
-						141.0f, 35.0f, -62.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						141.0f, 35.0f, -62.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.3f, 0.6f, 0.1f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						141.0f, 35.0f, -37.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.9f, 0.3f, 0.7f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						141.0f, 35.0f, -80.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
 					lightOn4 = true;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
@@ -937,11 +1097,28 @@ int main()
 					// Apagar la luz
 					spotLights3[0] = SpotLight(0.0f, 0.0f, 0.0f, // Color apagado
 						0.0f, 0.0f,       // Intensidad apagada
-						141.0f, 35.0f, -62.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						141.0f, 35.0f, -62.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						141.0f, 35.0f, -37.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						141.0f, 35.0f, -80.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
 					lightOn4 = false;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
@@ -952,10 +1129,26 @@ int main()
 					// Encender la luz
 					spotLights3[0] = SpotLight(0.6f, 0.3f, 0.7f, // Color de la luz
 						1.0f, 2.0f,       // Intensidad ambiental y difusa
-						166.0f, 25.0f, 5.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						166.0f, 25.0f, 5.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.2f, 0.3f, 0.4f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						140.0f, 25.0f, 5.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.9f, 0.1f, 0.7f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						188.0f, 25.0f, 5.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
 					lightOn5 = true;
 				}
@@ -966,11 +1159,28 @@ int main()
 					// Apagar la luz
 					spotLights3[0] = SpotLight(0.0f, 0.0f, 0.0f, // Color apagado
 						0.0f, 0.0f,       // Intensidad apagada
-						166.0f, 19.0f, 5.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						166.0f, 19.0f, 5.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						140.0f, 25.0f, 5.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						188.0f, 25.0f, 5.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
 					lightOn5 = false;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
@@ -981,11 +1191,28 @@ int main()
 					// Encender la luz
 					spotLights3[0] = SpotLight(0.6f, 0.3f, 0.7f, // Color de la luz
 						1.0f, 2.0f,       // Intensidad ambiental y difusa
-						110.0f, 45.0f, -72.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						110.0f, 45.0f, -72.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.15f, 0.8f, 0.3f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						110.0f, 45.0f, -42.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.66f, 0.3f, 0.3f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						110.0f, 45.0f, -82.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
 					lightOn6 = true;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
@@ -995,24 +1222,42 @@ int main()
 					// Apagar la luz
 					spotLights3[0] = SpotLight(0.0f, 0.0f, 0.0f, // Color apagado
 						0.0f, 0.0f,       // Intensidad apagada
-						110.0f, 17.0f, -72.0f, // Posición de la luz
-						0.0f, -1.0f, 0.0f, // Dirección de la luz
-						1.0f, 0.0f, 0.0f, // Atenuación
-						30.0f);           // Ángulo del cono
+						110.0f, 17.0f, -72.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
 					spotLightCount3++;
+
+					spotLights3[1] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						110.0f, 45.0f, -42.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+					spotLights3[2] = SpotLight(0.0f, 0.0f, 0.0f, // Color de la luz
+						1.0f, 2.0f,       // Intensidad ambiental y difusa
+						110.0f, 45.0f, -82.0f, // Posiciï¿½n de la luz
+						0.0f, -1.0f, 0.0f, // Direcciï¿½n de la luz
+						1.0f, 0.0f, 0.0f, // Atenuaciï¿½n
+						30.0f);           // ï¿½ngulo del cono
+					spotLightCount3++;
+
+
 					lightOn6 = false;
 				}
 				shaderList[0].SetSpotLights(spotLights3, spotLightCount3);
 			}
 
-			
-			
+
+
 		}
-		else if (mainWindow.getEncender() == true){
+		else if (mainWindow.getEncender() == true) {
 			if (noche == false) {
 				shaderList[0].SetSpotLights(spotLights2, spotLightCount2);
 			}
-			else{
+			else {
 				shaderList[0].SetSpotLights(spotLights, spotLightCount);
 			}
 		}
@@ -1024,7 +1269,7 @@ int main()
 		glm::vec2 toffset = glm::vec2(0.0f, 0.0f);
 		glm::vec3 posicionPersonaje;
 		glm::vec4 nuevaPosicionPersonaje;
-		
+
 		glUniform2fv(uniformTextureOffset, 1, glm::value_ptr(toffset));
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(0.0f, -2.0f, 0.0f));
@@ -1038,7 +1283,7 @@ int main()
 		meshList[2]->RenderMesh();
 
 
-		
+
 
 		//============== ENTRADA ================
 		//Entrada
@@ -1236,7 +1481,7 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		Camino.RenderModel();
 		model = modelaux;
-		
+
 		modelaux = model;
 		model = glm::translate(model, glm::vec3(41.0f, 0.0f, -61.0f));
 		model = glm::scale(model, glm::vec3(1.5f, 1.5f, 1.0f));
@@ -1509,7 +1754,7 @@ int main()
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		BateoBola.RenderModel();
 		model = modelaux;
-		
+
 		// ============= GLOBOS ==================
 		//Mesa
 		model = glm::mat4(1.0);
@@ -2021,10 +2266,11 @@ int main()
 
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(15.0f, -2.0f, 20.0f));
+		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		modelaux = model;
-		model = glm::scale(model, glm::vec3(3.4f, 3.4f, 3.4f));
+		model = glm::scale(model, glm::vec3(1.9f, 2.7f, 1.9f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		Carrusel.RenderModel();
+		Trampolin.RenderModel();
 		model = modelaux;
 
 		model = glm::mat4(1.0);
@@ -2072,28 +2318,169 @@ int main()
 		Helado.RenderModel();
 		model = modelaux;
 
+		//Alimentos nesas 
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-50.0f, -2.0f, 50.0f));
+		model = glm::translate(model, glm::vec3(-65.0f, -2.0f, 50.0f));
 		modelaux = model;
-		model = glm::scale(model, glm::vec3(3.5f, 3.5f, 3.5f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		Helado.RenderModel();
+		MesaComida.RenderModel();
 		model = modelaux;
 
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(-50.0f, -2.0f, 0.0f));
+		model = glm::translate(model, glm::vec3(-65.0f, -2.0f, 0.0f));
 		modelaux = model;
-		model = glm::scale(model, glm::vec3(3.5f, 3.5f, 3.5f));
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
 		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		Helado.RenderModel();
+		MesaComida.RenderModel();
 		model = modelaux;
 
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(180.0f, -2.0f, -58.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		MesaComida.RenderModel();
+		model = modelaux;
+
+		//Bancas
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-65.0f, -2.0f, -10.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		//model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-65.0f, -2.0f, 10.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-65.0f, -2.0f, 40.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		//model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-65.0f, -2.0f, 60.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(190.0f, -2.0f, -58.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(170.0f, -2.0f, -58.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -270 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(120.0f, -2.0f, 74.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -270 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BancasTematicas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(120.0f, -2.0f, 44.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -270 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(120.0f, -2.0f, 10.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -270 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BancasTematicas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-52.0f, -2.0f, 80.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BancasTematicas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-82.0f, -2.0f, 80.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BancasTematicas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, 69.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-40.0f, -2.0f, -74.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, 90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BancasTematicas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -50.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+
+		model = glm::mat4(1.0);
+		model = glm::translate(model, glm::vec3(-7.0f, -2.0f, -70.0f));
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Bancas.RenderModel();
+		model = modelaux;
+		//Puestos
 		model = glm::mat4(1.0);
 		model = glm::translate(model, glm::vec3(15.0f, -2.0f, 120.0f));
 		modelaux = model;
@@ -2143,37 +2530,37 @@ int main()
 
 		//Luces base
 		model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(50.0f, -10.0f,20.0f)); // Posición base
+		model = glm::translate(model, glm::vec3(50.0f, -10.0f, 20.0f)); // Posiciï¿½n base
 		modelaux = model;
 		model = glm::scale(model, glm::vec3(14.0f, 7.0f, 14.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		baseLuces.RenderModel();
 		model = modelaux;
-		
-		if (mainWindow.getarticulacion1() !=0.0f) {
-			movBrazos = sin(glfwGetTime()*velocidad)*45.0f*toRadians;
+
+		if (mainWindow.getarticulacion1() != 0.0f) {
+			movBrazos = sin(glfwGetTime() * velocidad) * 45.0f * toRadians;
 		}
 		else {
 			movBrazos = 0.0f;
 		}
-        //Personaje Gengar
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(100.0f, 4.0f, 150.0f)); // Posición base
-        model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion1())); // Movimiento hacia adelante en local
+		//Personaje Gengar
+		model = glm::mat4(1.0f);
+		model = glm::translate(model, glm::vec3(100.0f, 4.0f, 150.0f)); // Posiciï¿½n base
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion1())); // Movimiento hacia adelante en local
 
-        modelaux = model;
-        model = glm::scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
-        model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
-        model = glm::rotate(model, -270 * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
-        glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-        Gengar.RenderModel();
-        model = modelaux;
+		modelaux = model;
+		model = glm::scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
+		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, -270 * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		Gengar.RenderModel();
+		model = modelaux;
 
 		modelaux = model;
 		model = glm::translate(model, glm::vec3(-3.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
 		model = glm::rotate(model, 45 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, movBrazos, glm::vec3(0.0f, 1.0f, 0.0f));  
+		model = glm::rotate(model, movBrazos, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		GengarManoDer.RenderModel();
 		model = modelaux;
@@ -2182,7 +2569,7 @@ int main()
 		model = glm::translate(model, glm::vec3(3.0f, 1.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.08f, 0.08f, 0.08f));
 		model = glm::rotate(model, -45 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, -movBrazos, glm::vec3(0.0f, 1.0f, 0.0f));  
+		model = glm::rotate(model, -movBrazos, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		GengarManoIzq.RenderModel();
 		model = modelaux;
@@ -2226,7 +2613,7 @@ int main()
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, mainWindow.getarticulacion1()));
 		model = glm::rotate(model, -180 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		//model = glm::rotate(model, -270 * toRadians, glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(8.08f, 8.08f, 8.08f)); 
+		model = glm::scale(model, glm::vec3(8.08f, 8.08f, 8.08f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		Mordecai.RenderModel();
 
@@ -2254,51 +2641,72 @@ int main()
 		glm::vec3 posicionLuz2;
 		glm::vec4 nuevaPosicionLuz2;
 		//Luz 1
-			model = glm::mat4(1.0f);
-			modelaux = model;
-			model = glm::translate(model, glm::vec3(163.0f, 90.0f, 21.0f));
-			model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-			model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
-			posicionLuz2 = glm::vec3(-61.0f, 90.0f, 21.0f);
-			nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
-			spotLights[0].SetPos(nuevaPosicionLuz2);
-			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-			BateoBola.RenderModel();
-			model = modelaux;
+		model = glm::mat4(1.0f);
+		modelaux = model;
+		model = glm::translate(model, glm::vec3(163.0f, 90.0f, 21.0f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
+		posicionLuz2 = glm::vec3(-61.0f, 90.0f, 21.0f);
+		nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
+		spotLights[0].SetPos(nuevaPosicionLuz2);
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BateoBola.RenderModel();
+		model = modelaux;
 
-			//Luz 2
-			modelaux = model;
-			model = glm::translate(model, glm::vec3(46.0f, 90.0f, 21.0f));
-			model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-			model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
-			posicionLuz2 = glm::vec3(46.0f, 90.0f, 21.0f);
-			nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
-			spotLights[1].SetPos(nuevaPosicionLuz2);
-			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-			BateoBola.RenderModel();
-			model = modelaux;
+		//Luz 2
+		modelaux = model;
+		model = glm::translate(model, glm::vec3(46.0f, 90.0f, 21.0f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
+		posicionLuz2 = glm::vec3(46.0f, 90.0f, 21.0f);
+		nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
+		spotLights[1].SetPos(nuevaPosicionLuz2);
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BateoBola.RenderModel();
+		model = modelaux;
 
-			//Luz 3
-			modelaux = model;
-			model = glm::translate(model, glm::vec3(-62.0f, 90.0f, 21.0f));
-			model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
-			model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
-			posicionLuz2 = glm::vec3(-62.0f, 90.0f, 21.0f);
-			nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
-			spotLights[2].SetPos(nuevaPosicionLuz2);
-			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-			BateoBola.RenderModel();
-			model = modelaux;
-		
+		//Luz 3
+		modelaux = model;
+		model = glm::translate(model, glm::vec3(-62.0f, 90.0f, 21.0f));
+		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));
+		model = glm::rotate(model, glm::radians(mainWindow.getarticulacion4()), glm::vec3(0.0f, 1.0f, 0.0f));
+		posicionLuz2 = glm::vec3(-62.0f, 90.0f, 21.0f);
+		nuevaPosicionLuz2 = model * glm::vec4(posicionLuz2, 1.0f);
+		spotLights[2].SetPos(nuevaPosicionLuz2);
+		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+		BateoBola.RenderModel();
+		model = modelaux;
+
 
 		//Instancia del coche 
 		model = glm::mat4(1.0);
-		model = glm::translate(model, glm::vec3(movCoche-50.0f, -10.5f, -2.0f));
+		model = glm::translate(model, glm::vec3(movCoche - 50.0f, -10.5f, -2.0f));
 		modelaux = model;
 		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
 		model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
 		glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
 		Kitt_M.RenderModel();
+
+		if (noche == false) {
+			//Instancia del sol
+			model = glm::mat4(1.0);
+			model = glm::translate(model, glm::vec3(movCoche - 50.0f, 250.5f, -2.0f));
+			modelaux = model;
+			model = glm::scale(model, glm::vec3(1.5f, 1.5f, 1.5f));
+			//model = glm::rotate(model, 270 * toRadians, glm::vec3(0.0f, 0.0f, 1.0f));
+			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+			Sol.RenderModel();
+		}
+		else{
+			//Instancia de la luna
+			model = glm::mat4(1.0);
+			model = glm::translate(model, glm::vec3(movCoche - 50.0f, 250.5f, -2.0f));
+			modelaux = model;
+			model = glm::scale(model, glm::vec3(5.0f, 5.0f, 5.0f));
+			model = glm::rotate(model, -90 * toRadians, glm::vec3(0.0f, 1.0f, 0.0f));
+			glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
+			Luna.RenderModel();
+		}
 
 		// ================== FIN DE ESCENA ==================
 
